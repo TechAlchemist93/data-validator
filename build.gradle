@@ -1,0 +1,38 @@
+plugins {
+    id "idea"
+    id "java-library"
+    id "org.springframework.boot" version "2.4.8"
+}
+
+apply plugin: "io.spring.dependency-management"
+
+group = "com.example.rabbi"
+version = "1.1.0-SNAPSHOT"
+
+ext {
+    lombokVersion = "1.18.8"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Spring Dependencies
+    api "org.springframework.boot:spring-boot-starter-webflux"
+    implementation 'io.vavr:vavr:0.9.0'
+
+    //Lombok
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation 'com.h2database:h2:1.4.200'
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-data-jpa"
+}
+
+test {
+    useJUnitPlatform()
+}

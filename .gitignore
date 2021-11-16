@@ -1,0 +1,16 @@
+### Intellij ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Java ###
+*.class
+*.jar
+
+### Gradle ###
+.gradle
+build/
+
+### Protobuf ###
+**/generated/*
